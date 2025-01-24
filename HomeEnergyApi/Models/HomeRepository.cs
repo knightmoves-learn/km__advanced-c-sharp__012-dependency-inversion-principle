@@ -1,6 +1,6 @@
 namespace HomeEnergyApi.Models
 {
-    public class HomeRepository: IRepository<int, Home>
+    public class HomeRepository
     {
         public List<Home> HomesList;
 

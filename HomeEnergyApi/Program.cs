@@ -3,8 +3,6 @@ using HomeEnergyApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSingleton<IControllerFactory, ApplicationFactory>();
-
 builder.Services.AddControllers();
 
 var app = builder.Build();

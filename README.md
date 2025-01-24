@@ -21,7 +21,7 @@ In `HomeEnergyApi/ApplicationFactory.cs`...
 
 
 In `HomeEnergyApi/Controllers/HomesController.cs`...
-- Change the declaration of `repository` to no longer set the value to a new `HomeRepository`, and to make `repository` type `IRepository`
+- Change the declaration of `repository` to no longer set the value to a new `HomeRepository`, and to make `repository` type `IRepository<int,Home>`
 - Create a constructor
   - The constructor should take a `HomeRepository` as an argument
   - The constructor should set the value of `repository` to the passed `HomeRepository`.

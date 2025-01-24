@@ -7,12 +7,7 @@ namespace HomeEnergyApi.Controllers
     [Route("[controller]")]
     public class HomesController : ControllerBase
     {
-        public IRepository<int, Home> repository;
-
-        public HomesController(IRepository<int, Home> repository)
-        {
-            this.repository = repository;
-        }
+        public HomeRepository repository = new HomeRepository();
 
         [HttpGet]
         public IActionResult Get()
