@@ -1,8 +1,9 @@
-# 011 Single Responsibility Principle
+# 012 Dependency Inversion Principle
 
 ## Lecture
 
-[![# Single Responsibility Principle](https://img.youtube.com/vi/krAyfDEWXrE/0.jpg)](https://www.youtube.com/watch?v=krAyfDEWXrE)
+[![# Dependency Inversion Principle(Part 1)](https://img.youtube.com/vi/K_7HHvfSfiQ/0.jpg)](https://www.youtube.com/watch?v=K_7HHvfSfiQ)
+[![# Dependency Inversion Principle(Part 2)](https://img.youtube.com/vi/fRwdC6VfEU8/0.jpg)](https://www.youtube.com/watch?v=fRwdC6VfEU8)
 
 ## Instructions
 
