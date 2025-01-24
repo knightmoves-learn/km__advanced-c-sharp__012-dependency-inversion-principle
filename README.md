@@ -13,11 +13,11 @@ In `HomeEnergyApi/ApplicationFactory.cs`...
 - Create a new public class `ApplicationFactory` implementing `IControllerFactory`.
   - This class should have a public static property `repository` of type `HomeRepository'.
   - This class should have a method `CreateController()`.
-    - `CreateController()` should take one argument `context` oc type `ControllerContext`.
+    - `CreateController()` should take one argument `context` of type `ControllerContext`.
     - `CreateController()` should initalize `repository` as a new `HomeRepository` if `repository` is currently null.
     - `CreateController()` should return a new `HomesController` with `repository` passed as an argument.
   - This class should have a method `ReleaseController()`
-    - `ReleaseController()` should take two arguments `context` oc type `ControllerContext`, and `controller` of type `object`
+    - `ReleaseController()` should take two arguments `context` of type `ControllerContext`, and `controller` of type `object`
     - `ReleaseController()` should call `disposable.Dispose()` if `controller` is `IDisposable disposable`
 
 
