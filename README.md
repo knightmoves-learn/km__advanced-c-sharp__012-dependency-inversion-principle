@@ -40,11 +40,6 @@ In `HomeEnergyApi/Models/IRepository.cs`
 In `HomeEnergyApi/Models/HomeRepository.cs`
 - Have `HomeRepository` implement the interface `IRepository<Tid,T>`
 
-Additional Information:
-
-- Since the last lesson, `Home` has lost it's `Id` property. From now on, when you see a saved home's "id" refrenced, that will refer to it's index within `HomeRepository.HomesList`.
-  - You can still refrence `Home`s type definition in `HomeEnergyApi/Models/HomeModel.cs`
-
 ## Building toward CSTA Standards:
 
 - Explain how abstractions hide the underlying implementation details of computing systems embedded in everyday objects. (3A-CS-01) https://www.csteachers.org/page/standards
