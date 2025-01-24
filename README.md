@@ -1,1 +1,62 @@
-# km__advanced-c-sharp__012-dependency-inversion-principle
+# 011 Single Responsibility Principle
+
+## Lecture
+
+[![# Single Responsibility Principle](https://img.youtube.com/vi/krAyfDEWXrE/0.jpg)](https://www.youtube.com/watch?v=krAyfDEWXrE)
+
+## Instructions
+
+In this assignment you refactor HomeEnergyApi to apply the Dependency Inversion Principle to your code.
+
+In `HomeEnergyApi/ApplicationFactory.cs`...
+- Create a new public class `ApplicationFactory` implementing `IControllerFactory`.
+  - This class should have a public static property `repository` of type `HomeRepository'.
+  - This class should have a method `CreateController()`.
+    - `CreateController()` should take one argument `context` oc type `ControllerContext`.
+    - `CreateController()` should initalize `repository` as a new `HomeRepository` if `repository` is currently null.
+    - `CreateController()` should return a new `HomesController` with `repository` passed as an argument.
+  - This class should have a method `ReleaseController()`
+    - `ReleaseController()` should take two arguments `context` oc type `ControllerContext`, and `controller` of type `object`
+    - `ReleaseController()` should call `disposable.Dispose()` if `controller` is `IDisposable disposable`
+
+
+In `HomeEnergyApi/Controllers/HomesController.cs`...
+- Change the declaration of `repository` to no longer set the value to a new `HomeRepository`, and to make `repository` type `IRepository`
+- Create a constructor
+  - The constructor should take a `HomeRepository` as an argument
+  - The constructor should set the value of `repository` to the passed `HomeRepository`.
+
+In `HomeEnergyApi/Program.cs`
+- Add the line `builder.Services.AddSingleton<IControllerFactory, ApplicationFactory>()` before calling `builder.build()`
+
+In `HomeEnergyApi/Models/IRepository.cs`
+- Create a public inteface `IRepository<TId, T>`
+  - `IRepository<TId, T>` should contain the method `T Save(T entity);`
+  - `IRepository<TId, T>` should contain the method `T Update(TId id, T entity);`
+  - `IRepository<TId, T>` should contain the method `List<T> FindAll();`
+  - `IRepository<TId, T>` should contain the method `T FindById(TId id);`
+  - `IRepository<TId, T>` should contain the method `T RemoveById(TId id);`
+
+In `HomeEnergyApi/Models/HomeRepository.cs`
+- Have `HomeRepository` implement the interface `IRepository<Tid,T>`
+
+Additional Information:
+
+- Since the last lesson, `Home` has lost it's `Id` property. From now on, when you see a saved home's "id" refrenced, that will refer to it's index within `HomeRepository.HomesList`.
+  - You can still refrence `Home`s type definition in `HomeEnergyApi/Models/HomeModel.cs`
+
+## Building toward CSTA Standards:
+
+- Explain how abstractions hide the underlying implementation details of computing systems embedded in everyday objects. (3A-CS-01) https://www.csteachers.org/page/standards
+- Decompose problems into smaller components through systematic analysis, using constructs such as procedures, modules, and/or objects. (3A-AP-17) https://www.csteachers.org/page/standards
+- Construct solutions to problems using student-created components, such as procedures, modules and/or objects. (3B-AP-14) https://www.csteachers.org/page/standards
+- Compare levels of abstraction and interactions between application software, system software, and hardware layers. (3A-CS-02) https://www.csteachers.org/page/standards
+
+## Resources
+
+- https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)
+- https://en.wikipedia.org/wiki/Singleton_pattern
+- https://en.wikipedia.org/wiki/Dependency_injection
+- https://en.wikipedia.org/wiki/Dependency_inversion_principle
+
+Copyright &copy; 2025 Knight Moves. All Rights Reserved.
