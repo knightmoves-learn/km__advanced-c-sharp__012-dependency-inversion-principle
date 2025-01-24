@@ -15,7 +15,7 @@ public class HomeRepositoryTests
     public void HomeRepositoryCanCreateANewHomeRepositoryAndPublicListHomesListOfHomes()
     {
         var homeRepository = new HomeRepository();
-        Assert.True(!homeRepository.HomesList.Any(), "HomeRepository failed to instantiate with an empty public list of Homes \"homesList\"");
+        Assert.True(!homeRepository?.HomesList?.Any(), "HomeRepository failed to instantiate with an empty public list of Homes \"HomesList\"");
     }
 
     [Fact, TestPriority(2)]
@@ -23,7 +23,7 @@ public class HomeRepositoryTests
     {
         var homeRepository = new HomeRepository();
         homeRepository.Save(testHome);
-        Assert.True(homeRepository.HomesList[0] == testHome, $"HomeRepository was unable to successfully save a new home.");
+        Assert.True(homeRepository?.HomesList?[0] == testHome, $"HomeRepository was unable to successfully save a new home.");
     }
 
 
@@ -35,7 +35,7 @@ public class HomeRepositoryTests
         homeRepository.Save(testHome);
         homeRepository.Update(0, testHome2);
 
-        Assert.True(homeRepository.HomesList[0] == testHome2, "HomeRepository was unable to successfully update a home at a given Id");
+        Assert.True(homeRepository?.HomesList?[0] == testHome2, "HomeRepository was unable to successfully update a home at a given Id");
     }
 
     [Fact, TestPriority(4)]
@@ -46,7 +46,7 @@ public class HomeRepositoryTests
         homeRepository.Save(testHome);
         homeRepository.Save(testHome2);
 
-        Assert.True(homeRepository.HomesList[0] == testHome && homeRepository.HomesList[1] == testHome2, "HomeRepository was unable to successfully find all homes");
+        Assert.True(homeRepository?.HomesList?[0] == testHome && homeRepository?.HomesList?[1] == testHome2, "HomeRepository was unable to successfully find all homes");
     }
 
     [Fact, TestPriority(5)]
@@ -59,7 +59,7 @@ public class HomeRepositoryTests
 
         homeRepository.FindById(1);
 
-        Assert.True(homeRepository.HomesList[1] == testHome2, "HomeRepository was unable to successfully find a home with a given Id");
+        Assert.True(homeRepository?.HomesList?[1] == testHome2, "HomeRepository was unable to successfully find a home with a given Id");
     }
 
     [Fact, TestPriority(6)]
@@ -71,7 +71,7 @@ public class HomeRepositoryTests
 
         homeRepository.RemoveById(0);
 
-        Assert.True(!homeRepository.HomesList.Any(), "HomeRepository was unable to successfully remove a home at a given Id");
+        Assert.True(!homeRepository?.HomesList?.Any(), "HomeRepository was unable to successfully remove a home at a given Id");
     }
 
     [Fact, TestPriority(7)]
