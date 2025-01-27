@@ -3,7 +3,7 @@
 ## Lecture
 
 [![# Dependency Inversion Principle(Part 1)](https://img.youtube.com/vi/kd9eO_nAD2M/0.jpg)](https://youtu.be/kd9eO_nAD2M)
-[![# Dependency Inversion Principle(Part 2)](https://img.youtube.com/vi/ZjUsAn93Sv0/0.jpg)](https://youtu.be/ZjUsAn93Sv0)
+[![# Dependency Inversion Principle(Part 2)](https://img.youtube.com/vi/3qWO205PdXs/0.jpg)](https://youtu.be/3qWO205PdXs)
 
 ## Instructions
 
